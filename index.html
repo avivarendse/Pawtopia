@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pawtopia</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header>
+    <nav class="navbar">
+
+      <!-- Logo -->
+      <a href="about.html" class="nav-logo">
+        <span class="paw-icon">🐾</span>
+        <span class="logo-text">Pawtopia</span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label for="nav-toggle" class="hamburger" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </label>
+ 
+      <!-- Mobile dropdown menu -->
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="index.html"     onclick="document.getElementById('nav-toggle').checked=false">Home</a></li>
+          <li><a href="services.html"      onclick="document.getElementById('nav-toggle').checked=false">Services</a></li>
+          <li><a href="about.html"        onclick="document.getElementById('nav-toggle').checked=false">About</a></li>
+          <li><a href="contact.html"      onclick="document.getElementById('nav-toggle').checked=false">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-book-mobile">Book Now</a>
+      </div>
+ 
+
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <main>
+    <section class="hero">
+
+      <!-- ---- Left: Copy ---- -->
+      <div class="hero-left">
+
+
+        <!-- Headline -->
+        <h1 class="hero-headline">
+          Your pet's<br>
+          <span class="accent">home away</span><br>
+          from home.
+        </h1>
+
+        <!-- Sub-copy -->
+        <p class="hero-sub">
+          Professional, loving daycare for dogs and cats.
+          Playtime, cuddles, grooming, and boarding — all under one roof.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-primary">Book Now </a>
+          <a href="services.html" class="btn-secondary">See Services</a>
+        </div>
+
+      </div><!-- /hero-left -->
+
+
+      <!-- ---- Right: Image & floating cards ---- -->
+      <div class="hero-right">
+
+        
+
+
+        <!-- Hero image -->
+        <div class="hero-img-wrap">
+          <img
+            src="images/benefitsofowningapet.jpg"
+            alt="Happy pets at Pawtopia"
+          />
+        </div>
+      </div><!-- /hero-right -->
+
+    </section>
+  </main>
+
+
+</body>
+</html>
