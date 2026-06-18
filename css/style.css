@@ -1,0 +1,28 @@
+/* Import Google Fonts for Soft Rounded Typography */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap');
+
+/* Tailwind Layers Configuration for Custom Utility Properties */
+@layer base {
+  body {
+    font-family: 'Quicksand', sans-serif;
+    color: #3D2B1F;
+    background-color: #ffffff;
+  }
+}
+
+/* Custom Design Token Mappings */
+:root {
+  --paw-orange: #FF8C00;
+  --paw-amber: #FFB347;
+  --paw-cream: #FFF4E0;
+  --paw-brown: #3D2B1F;
+  --paw-error: #F26522;
+}
+
+/* Tailwind Custom Utility Injectors */
+.text-pawOrange { color: var(--paw-orange); }
+.bg-pawOrange { background-color: var(--paw-orange); }
+.hover\:bg-pawAmber:hover { background-color: var(--paw-amber); }
+.border-pawOrange { border-color: var(--paw-orange); }
+.text-pawError { color: var(--paw-error); }
+.border-pawError { border-color: var(--paw-error); }
