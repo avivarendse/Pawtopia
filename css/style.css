@@ -454,3 +454,44 @@ body {
   /* Mobile menu sits below 64px navbar */
   .mobile-menu { top: 64px; }
 }
+
+/* --- Pet Tabs Styling --- */
+.pet-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  background: #f0f0f0;
+  border: 2px solid transparent;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.tab-btn.active {
+  background: #ff9f43; /* Match your accent color */
+  color: white;
+  border-color: #ff9f43;
+}
+
+/* --- Paw Print Trail Styling --- */
+.paw-trail {
+  position: absolute;
+  pointer-events: none; /* Stops paw prints from blocking clicks */
+  font-size: 24px;
+  animation: fadeOutPaw 1s forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeOutPaw {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-20px);
+  }
+}
