@@ -146,3 +146,289 @@ function setupPetProfile(){
         showToast();
     }
 }
+// Contact form
+
+function setupContactForm(){
+    var messageField = document.getElementById("contact-form");
+    if (!form) return;
+
+    var messageField = document.getElementById("contact-message");
+    var counter = document.getElementById("contact=message-count");
+    if (messageField && counter){
+        messageField.addEventListener("input",function(){
+            var left = 1000- messageField.value.length;
+            counter.textContent=left+"charecters remaining";
+        });
+    }
+    form.addEventListener("submit",function(e){
+        e.preventDefault();
+        var valid =true;
+
+        form.querySelectorAll(".field-error").forEach(function(el){el.remove();});
+        form.querySelector(".is-invalid").forEach(function(el){el.classList.remove();});
+
+        function showError(field,message){
+            field.classList.add("is-invalid");
+            var err = document.createElement("span")
+            err.className="field-error";
+            err.textContent=message;
+            field.parentNode.appendChild(err);
+            valid=false;
+        }
+        var nameField = document.getElementById("contact-name");
+        if (nameField && nameField.value.trim().length<2){
+            showError(nameField,"Please enter your name (at least 2 charecters)");
+        }
+        var emailField = document.getElementById("contact-email");
+        if (emailField){
+             var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailField.value.trim());
+        }
+        var msgField = document.getElementById("contact-message");
+        if (msgField && msgField.value.trim().length<10){
+            showError(msgField,"message must be at least 10 charecters.");
+        }
+        if (!valid)
+            var submitBtn=form.querySelector("[type='submit']");
+        submitBtn.disabled=true;
+        submitBtn.textContent="sending...";
+
+        setTimeout(function(){
+            form.reset();
+            showToast("message sent! We will get back to you within 24 hours" );
+            submitBtn.disabled=false;
+            submitBtn.textContent="send message";
+
+            var successMsg=document.getElementById("contact-success");
+            if (successMsg) successMsg.classList.remove("is-hidden");
+        },900);
+    });
+}
+//service booking
+
+var SERVICES = [
+    {id : "grooming",name:"Grooming",price:"350"},
+    {id: "boarding",name:"Boarding",price:"250"},
+    {id:"daycare",name:"Daycare",price:"180"},
+    {id : "walking",name:"Dog walking",price:"150"},
+    {id: "vet",name:"Vet Check",price:"1120"},
+    {id: "training",name:"Training",price:"500"}
+];
+
+function setupBooking(){
+    var modal = document.getElementById("booking-modal");
+    var closeBtn = document.getElementById("booking-modal-close");
+    var form = document.getElementById("booking-form");
+
+    if (!modal) return;
+
+    document.addEventListener('click',function(e){
+        var btn =e.target.closest("[data-service-id]");
+        if (!btn) return;
+        var svc=SERVICES.find(function(s){
+            return s.id===btn.dataset.serviceId;
+        });
+        if (!svc) return;
+
+        document.getElementById("booking-modal-title") && (document.getElementById("booking-modal-title").textContent="Book"+svc.name);
+        document.getElementById("booking-modal-price") && (document.getElementById("booking-modal-price").textContent="R"+svc.price+" per session");
+        document.getElementById("booking-modal-id") && (document.getElementById("booking-modal-id").value=svc.id);
+
+        modal.removeAttribute("hiden");
+    });
+    function closeModal(){
+        modal.setAttribute("hidden","");
+        if (form)
+            form.reset();
+    }
+    if (closeBtn)
+        closeBtn.addEventListener('click',closeModal);
+    modal.addEventListener('click',function(e){
+        if (e.target===modal)
+            closeModal();
+    });
+    document.addEventListener("keydown",function(e){
+        if (e.key==="Escape")
+            closeModal();
+    });
+    if (form){
+        form.addEventListener("submit",function(e){
+            e.preventDefault();
+
+            var petName = form.element["booking-pet-name"] && form.element["booking-pet-name"].value.trim();
+        })
+    }
+}
+//Payment form
+function setupPayment(){
+    var form = document.getElementById("payment-form");
+    var cardNumber = document.getElementById("card-number");
+    var cardExpiry  = document.getElementById("card-expiry");
+    var cardCvv = document.getElementById("card-cvv");
+    if (!form) return;
+
+    if (cardNumber){
+        cardNumber.addEventListener("input",function(){
+            var digits = cardNumber.value.replace(/\D/g,"").slice(0,16);
+            cardNumber.value = digits.match(/.{1,4}/g)? digits.match(/.{1,4}/g).join(" "):digits;
+        });
+    }
+    if (cardExpiry){
+        cardExpiry.addEventListener("input",function(){
+            var digits = cardExpiry.value.replace(/\D/g,"").slice(0,4);
+            if (digits.length>=3){
+                cardExpiry.value = digits.slice(0,2) + "/" + digits.slice(2);
+            }else{
+                cardExpiry.value = digits;
+            }
+        });
+    }
+    if (cardCvv){
+        cardCvv.addEventListener("input",function(){
+            cardCvv.value=cardCvv.value.replace(/\D/g,"").slice(0,4);
+        });
+    }
+    form.addEventListener("submit",function(e){
+        e.preventDefault();
+
+        var number = (cardNumber&&cardNumber.value.replace(/\s/g,""))||"";
+        var expiry = (cardExpiry && cardExpiry.value) || "";
+        var cvv = (cardCvv && cardCvv.value) ||"";
+        var errors=[];
+
+        if (!/^\d{13,19}$/.test(number))   errors.push("Enter a valid card number.");
+        if (!/^\d{2}\/\d{2}$/.test(expiry)) errors.push("Expiry must be MM/YY.");
+        if (!/^\d{3,4}$/.test(cvv))         errors.push("Enter a 3 or 4 digit CVV.");
+         if (!errors.length){
+            var digits = number.split("").reverse().map(Number);
+            var sum = digits.reduce(function(total,digit,index){
+                if (index % 2!==0){ digit*=2;
+                    if (digit>9)
+                        digit-=9;
+                }
+                return total + digit;
+            },0);
+            if (sum % 10 !==0) errors.push("Card number is not valid.")
+         }
+        if (errors.length){
+            alert(errors.join("\n"));
+            return;
+        }
+
+        var btn = form.querySelector("[type='submit']");
+        btn.disabled = true;
+        btn.textContent="Processing..."
+
+        setTimeout(function(){
+            var amount = form.dataset.amount ? "R" + parseFloat(form.dataset.amount).toFixed: "payment";
+            form.reset();
+            btn.disabled = false;
+            btn.textContent="pay now."
+            addFeedItem("Payment confirmed: " + amount  + ". card eding " + number.slice(-4));
+            showToast("Payment Succesful!");
+        },1200);
+
+    });
+}
+
+//Home page
+function  setupHome(){
+    document.querySelectorAll("[data-count]").forEach(function(el){
+        var target = parseInt(el.dataset.count,10);
+        var started = false;
+
+        var observer = new IntersectionObserver(function(entries){
+            if (!entries[0].isIntersecting || started) return;
+            started = true;
+            observer.disconnect();
+
+            var start = null;
+            var duration = 1400;
+
+            function step(timestamp){
+                if(!start) start = timestamp;
+                var progress = Math.round(progress*target).toLocaleString();
+                if (progress<1) requestAnimationFrame(step);
+
+            }
+            requestAnimationFrame(step);
+        },{threshold:0.5});
+        observer.observe(el);
+    });
+    document.querySelectorAll("[data-reveal]").forEach(function(el){
+        var observer = new IntersectionObserver(function (entries){
+            if (entries[0].isIntersecting){
+                el.classList.add("is-revealed");
+                observer.disconnect();
+            }
+        },{threshold: 0.15});
+        observer.observe(el);
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var target = document.getElementById(link.getAttribute("href").slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+    
+}
+
+// About page
+function setupAboutTabs() {
+  var tabList = document.querySelector('[role="tablist"]');
+  if (!tabList) return;
+ 
+  var tabs   = Array.from(tabList.querySelectorAll('[role="tab"]'));
+  var panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+ 
+  function showTab(tab) {
+    
+    tabs.forEach(function (t)   { t.setAttribute("aria-selected", "false"); });
+    panels.forEach(function (p) { p.setAttribute("hidden", ""); });
+ 
+    
+    tab.setAttribute("aria-selected", "true");
+    var panel = document.getElementById(tab.getAttribute("aria-controls"));
+    if (panel) panel.removeAttribute("hidden");
+  }
+ 
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () { showTab(tab); });
+  });
+ 
+  if (tabs.length) showTab(tabs[0]); 
+}
+
+function showToast(message) {
+  var old = document.getElementById("pawcare-toast");
+  if (old) old.remove();
+ 
+  var toast       = document.createElement("div");
+  toast.id        = "pawcare-toast";
+  toast.className = "pawcare-toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+ 
+  
+  setTimeout(function () { toast.classList.add("is-visible"); }, 10);
+ 
+
+  setTimeout(function () {
+    toast.classList.remove("is-visible");
+    setTimeout(function () { toast.remove(); }, 400);
+  }, 3500);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+//
+  setupNavigation();
+  setupPetProfiles();
+  setupContactForm();
+  setupBooking();
+  setupPayment();
+  //
+  setupHomePage();
+  setupAboutTabs();
+});
+ 
