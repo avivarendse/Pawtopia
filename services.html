@@ -30,7 +30,6 @@
         <p>From daily daycare to grooming and overnight boarding -- Pawtopia offers premium care designed specifically for puppies and kittens.</p>
         <div class="services-hero-btns">
           <a href="contact.html" class="btn-primary">Book Now</a>
-          <a href="#services-grid" class="btn-secondary">See Services</a>
         </div>
       </div>
       <div class="services-slider">
@@ -51,8 +50,81 @@
         <h2>Our Care Services</h2>
         <p>Tailored for your best friend</p>
       </div>
+
       <div class="services-grid">
 
         <div class="service-card">
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3>Dog Daycare</h3>
+          <p>Full-day supervised play from R220/day.</p>
+          <a href="contact.html" class="service-link">Learn More &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          </div>
+          <h3>Luxury Boarding</h3>
+          <p>Overnight stays with cosy beds and premium care from R350/night.</p>
+          <a href="contact.html" class="service-link">Learn More &rarr;</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+          </div>
+          <h3>Spa & Grooming</h3>
+          <p>Pamper packages, haircuts, and warm baths from R235/session.</p>
+          <a href="contact.html" class="service-link">Learn More &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="enquiry-section">
+      <div class="enquiry-box">
+        <h3>Ask About a Custom Plan</h3>
+        <p>Fill out the form below and our team will get right back to you.</p>
+
+        <div class="form-success" id="formSuccess">
+          Thank you! Your pet inquiry has been successfully sent to our team.
+        </div>
+        <div class="form-error" id="formError"></div>
+
+        <form id="pet-inquiry-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="pet-age">Pet's Age</label>
+            <input type="text" id="pet-age" name="pet-age" placeholder="e.g., 2 years" required>
+          </div>
+          <button type="submit" class="submit-btn">Submit Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 4;
+    const track = document.getElementById('slider-track');
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
