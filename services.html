@@ -4,172 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pawtopia — Services</title>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-white font-sans text-[#3D2B1F] antialiased">
+<body>
 
-  <nav class="w-full h-[80px] bg-white border-b border-[#FFF4E0] sticky top-0 z-50">
-    <div class="max-w-[1200px] mx-auto h-full px-4 flex items-center justify-between">
-      <a href="#" class="text-2xl font-bold text-[#FF8C00]">Pawtopia</a>
-      
-      <div class="hidden md:flex items-center gap-6 text-[16px] font-semibold">
-        <a href="#" class="text-[#3D2B1F] hover:text-[#FF8C00] transition">Home</a>
-        <a href="#" class="text-[#FF8C00]">Services</a>
-        <a href="#" class="text-[#3D2B1F] hover:text-[#FF8C00] transition">About Us</a>
-        <a href="#" class="text-[#3D2B1F] hover:text-[#FF8C00] transition">Contact</a>
-      </div>
-      
-      <button class="bg-[#FF8C00] hover:bg-[#FFB347] text-white font-bold text-[16px] py-2 px-6 rounded-[50px] transition-colors duration-200">
-        Book Now
-      </button>
-    </div>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="paw-icon">🐾</span>
+      <span class="logo-text">Pawtopia</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book Now</a>
   </nav>
 
-  <header class="bg-[#FFF4E0] py-20">
-    <div class="max-w-[1200px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="text-[48px] font-bold text-[#3D2B1F] leading-[1.2] mb-4">Welcome to Pawtopia</h1>
-        <p class="text-[16px] text-[#3D2B1F] font-medium leading-[1.7] mb-8">
-          Where every pup and kitten gets the love and care they deserve, every single day.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <button class="bg-[#FF8C00] hover:bg-[#FFB347] text-white font-bold text-[16px] py-2 px-6 rounded-[50px] transition-colors">
-            Book Now
-          </button>
-          <button class="border-2 border-[#FF8C00] text-[#FF8C00] hover:bg-[#FF8C00] hover:text-white font-bold text-[16px] py-2 px-6 rounded-[50px] transition-all">
-            Learn More
-          </button>
+  <header class="services-hero">
+    <div class="services-hero-inner">
+      <div class="services-hero-text">
+        <h1>Everything your pet needs under one roof.</h1>
+        <p>From daily daycare to grooming and overnight boarding -- Pawtopia offers premium care designed specifically for puppies and kittens.</p>
+        <div class="services-hero-btns">
+          <a href="contact.html" class="btn-primary">Book Now</a>
+          <a href="#services-grid" class="btn-secondary">See Services</a>
         </div>
       </div>
-      
-      <div class="relative h-[350px] w-full bg-[#3D2B1F]/10 rounded-[12px] overflow-hidden shadow-md">
-        <div id="slider-track" class="absolute top-0 left-0 h-full flex flex-row w-[400%] transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
-          <div class="w-1/4 h-full flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800" alt="Happy dog at Pawtopia" class="w-full h-full object-cover">
-          </div>
-          <div class="w-1/4 h-full flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800" alt="Ginger Cat" class="w-full h-full object-cover">
-          </div>
-          <div class="w-1/4 h-full flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800" alt="Retriever Puppy" class="w-full h-full object-cover">
-          </div>
-          <div class="w-1/4 h-full flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=800" alt="Grey Cat" class="w-full h-full object-cover">
-          </div>
+      <div class="services-slider">
+        <div class="slider-track" id="slider-track">
+          <div class="slide"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800" alt="Happy dog at Pawtopia"></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800" alt="Ginger Cat"></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800" alt="Retriever Puppy"></div>
+          <div class="slide"><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=800" alt="Grey Cat"></div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="max-w-[1200px] mx-auto px-4 py-20">
-    <div class="text-center mb-12">
-      <h2 class="text-[36px] font-bold text-[#3D2B1F]">Our Care Services</h2>
-      <p class="text-[14px] font-bold text-[#3D2B1F]/70 uppercase tracking-wider mt-2">Tailored for your best friend</p>
-    </div>
+  <main>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-      <div class="bg-[#FFF4E0] p-6 rounded-[16px] flex flex-col justify-between items-start group hover:shadow-md transition-shadow duration-300">
-        <div>
-          <div class="w-12 h-12 rounded-full bg-[#FF8C00] flex items-center justify-center text-white mb-4 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
-          <h3 class="text-[24px] font-bold text-[#3D2B1F] mb-2">Dog Daycare</h3>
-          <p class="text-[16px] font-medium text-[#3D2B1F] leading-[1.7] mb-6">Full-day supervised play from R220/day.</p>
-        </div>
-        <button class="text-[#FF8C00] group-hover:text-[#FFB347] font-bold text-[14px] flex items-center gap-1 transition-colors">
-          Learn More <span>&rarr;</span>
-        </button>
+    <section class="services-section" id="services-grid">
+      <div class="services-section-header">
+        <h2>Our Care Services</h2>
+        <p>Tailored for your best friend</p>
       </div>
+      <div class="services-grid">
 
-      <div class="bg-[#FFF4E0] p-6 rounded-[16px] flex flex-col justify-between items-start group hover:shadow-md transition-shadow duration-300">
-        <div>
-          <div class="w-12 h-12 rounded-full bg-[#FF8C00] flex items-center justify-center text-white mb-4 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-          </div>
-          <h3 class="text-[24px] font-bold text-[#3D2B1F] mb-2">Luxury Boarding</h3>
-          <p class="text-[16px] font-medium text-[#3D2B1F] leading-[1.7] mb-6">Overnight stays with cozy beds and premium meals from R450/night.</p>
-        </div>
-        <button class="text-[#FF8C00] group-hover:text-[#FFB347] font-bold text-[14px] flex items-center gap-1 transition-colors">
-          Learn More <span>&rarr;</span>
-        </button>
-      </div>
-
-      <div class="bg-[#FFF4E0] p-6 rounded-[16px] flex flex-col justify-between items-start group hover:shadow-md transition-shadow duration-300">
-        <div>
-          <div class="w-12 h-12 rounded-full bg-[#FF8C00] flex items-center justify-center text-white mb-4 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-          </div>
-          <h3 class="text-[24px] font-bold text-[#3D2B1F] mb-2">Spa & Grooming</h3>
-          <p class="text-[16px] font-medium text-[#3D2B1F] leading-[1.7] mb-6">Pamper packages, haircuts, and warm baths from R300/session.</p>
-        </div>
-        <button class="text-[#FF8C00] group-hover:text-[#FFB347] font-bold text-[14px] flex items-center gap-1 transition-colors">
-          Learn More <span>&rarr;</span>
-        </button>
-      </div>
-
-    </div>
-  </main>
-
-<section class="max-w-[1200px] mx-auto px-4 pb-20">
-  <div class="bg-[#FFF4E0] p-6 md:p-12 rounded-[16px] max-w-xl mx-auto">
-    <h3 class="text-[24px] font-bold text-[#3D2B1F] mb-2">Ask About a Custom Plan</h3>
-    <p class="text-[14px] text-[#3D2B1F]/70 mb-6">Fill out the form below and our team will get right back to you.</p>
-    
-    <div data-fs-success class="hidden p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-[8px] font-medium">
-      Thank you! Your pet inquiry has been successfully sent to our team.
-    </div>
-
-    <div data-fs-error class="hidden p-4 mb-4 text-sm text-white bg-[#F26522] rounded-[8px] font-medium"></div>
-    
-    <form id="pet-inquiry-form" class="space-y-4">
-      <div>
-        <label for="name" class="block text-[14px] font-semibold text-[#3D2B1F] mb-2">Your Name</label>
-        <input type="text" id="name" name="name" data-fs-field placeholder="John Doe" class="w-full p-2 bg-white border border-[#FF8C00]/30 rounded-[8px] focus:outline-none focus:border-[#FF8C00] text-[16px] font-medium" required>
-        <span data-fs-error="name" class="text-[#F26522] text-[14px] mt-1 block font-semibold"></span>
-      </div>
-
-      <div>
-        <label for="email" class="block text-[14px] font-semibold text-[#3D2B1F] mb-2">Email Address</label>
-        <input type="email" id="email" name="email" data-fs-field placeholder="john@example.com" class="w-full p-2 bg-white border border-[#FF8C00]/30 rounded-[8px] focus:outline-none focus:border-[#FF8C00] text-[16px] font-medium" required>
-        <span data-fs-error="email" class="text-[#F26522] text-[14px] mt-1 block font-semibold"></span>
-      </div>
-
-      <div>
-        <label for="pet-age" class="block text-[14px] font-semibold text-[#3D2B1F] mb-2">Pet's Age</label>
-        <input type="text" id="pet-age" name="pet-age" data-fs-field placeholder="e.g., 2 years" class="w-full p-2 bg-white border border-[#F26522] rounded-[8px] focus:outline-none focus:border-[#F26522] text-[16px] font-medium" required>
-        <span data-fs-error="pet-age" class="text-[#F26522] text-[14px] mt-1 block font-semibold"></span>
-      </div>
-
-      <button type="submit" data-fs-submit-btn class="w-full bg-[#FF8C00] hover:bg-[#FFB347] text-white font-bold text-[16px] py-2 px-6 rounded-[50px] transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed">
-        Submit Inquiry
-      </button>
-    </form>
-  </div>
-</section>
-
- <script>
-    let currentSlide = 0;
-    const totalSlides = 4;
-    const track = document.getElementById('slider-track');
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      const displacement = currentSlide * 25; 
-      track.style.transform = `translateX(-${displacement}%)`;
-    }
-
-    setInterval(nextSlide, 3000);
-  </script>
-
-  <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#pet-inquiry-form', formId: 'mzdqqnlz' });
-  </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
-</body>
-</html>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
