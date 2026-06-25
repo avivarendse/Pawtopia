@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawtopia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">🐾Pawtopia</div>
+
+  <ul class="nav-center">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="contact.html" class="book-now-btn">Book Now</a>
+  </div>
+</nav>
+
+<section id="contact" class="contact-section">
+
+  <div class="contact-left">
+    <h1>Ready to book<br>your pet a stay?</h1>
+
+    <p>Fill out the form and we’ll get back to you within a few hours.</p>
+
+    <div class="info clickable-location" onclick="openMap()">
+      <span>📍</span>
+      <p>14 Blossom Street Gardens, Cape Town 8001</p>
+    </div>
+
+    <div class="info">
+      <span>📞</span>
+      <p>071 000 0000</p>
+    </div>
+
+    <div class="info">
+      <span>✉️</span>
+      <p>hello@pawtopia.co.za</p>
+    </div>
+
+    <div class="hours-card">
+      <h3>🕒 Hours</h3>
+
+      <div>
+        <p>Monday – Friday</p>
+        <strong>7:00am – 18:00pm</strong>
+      </div>
+
+      <div>
+        <p>Saturday</p>
+        <strong>7:00am – 13:00pm</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-box">
+    <h2>Book Your Pet's Stay</h2>
+    <p>Tell us about your furry friend and we’ll take care of the rest.</p>
+
+    <form>
+
+      <input type="hidden" id="petTypeInput">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" required>
+        </div>
+      </div>
+
+      <label>Service Interested In</label>
+      <select required>
+        <option value="">Select a service...</option>
+        <option>Daycare</option>
+        <option>Boarding</option>
+        <option>Grooming</option>
+        <option>Specialist Programme</option>
+        <option>General Enquiry</option>
+      </select>
+
+      <label>Pet Type</label>
+      <div class="pet-buttons">
+        <button type="button">Dog🐶</button>
+        <button type="button">Cat🐱</button>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Drop-off Date</label>
+          <input type="date" id="dropOffDate" required>
+        </div>
+
+        <div class="form-group">
+          <label>Pick-up Date</label>
+          <input type="date" id="pickUpDate" required>
+        </div>
+      </div>
+
+      <label>Notes</label>
+      <textarea placeholder="Any special needs..." rows="5"></textarea>
+
+      <button class="submit-btn" type="submit">Book Now</button>
+    </form>
+  </div>
+
+  <div id="confirmationMessage" class="confirmation-message">
+  Booking successful 🐾 We’ll contact you soon!
+</div>
+
+</section>
+
+<div class="social-section">
+  <h2>Follow our adventures 🐾</h2>
+  <p>Daily photos, happy pets, and behind-the-scenes moments from the Pawtopia family.</p>
+
+  <div class="social-links">
+    <div class="social-card">
+      <span>📸</span>
+      <div>
+        <h3>Instagram</h3>
+        <p>@pawtopia.capetown</p>
+      </div>
+    </div>
+
+    <div class="social-card">
+      <span>▶️</span>
+      <div>
+        <h3>Youtube</h3>
+        <p>Pawtopia Cape Town</p>
+      </div>
+    </div>
+
+    <div class="social-card">
+      <span>🎵</span>
+      <div>
+        <h3>TikTok</h3>
+        <p>@pawtopia.ct</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mapModal" class="map-modal">
+  <div class="map-content">
+    <span class="close" onclick="closeMap()">✖</span>
+
+    <iframe
+      src="https://www.google.com/maps?q=Cape+Town+Gardens&z=14&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

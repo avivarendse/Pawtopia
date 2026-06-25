@@ -1,3 +1,307 @@
+:root {
+  --primary: #FF8C00;
+  --secondary: #FFB347;
+  --cream: #FFF4E0;
+  --brown: #3D2B1F;
+  --white: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--white);
+  color: var(--brown);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Nunito', sans-serif;
+  color: var(--brown);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 40px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-left {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.nav-center {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: var(--brown);
+  font-weight: 500;
+}
+
+.nav-center a:hover,
+.nav-center a.active {
+  color: var(--primary);
+}
+
+.book-now-btn {
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.book-now-btn:hover {
+  background: var(--secondary);
+}
+
+.contact-section {
+  display: flex;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  align-items: flex-start;
+}
+
+.contact-left {
+  flex: 1;
+}
+
+.contact-left h1 {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.contact-left p {
+  font-size: 16px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--cream);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.clickable-location {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clickable-location:hover {
+  transform: translateY(-3px);
+}
+
+.hours-card {
+  background: var(--cream);
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.booking-box {
+  flex: 1;
+  max-width: 600px;
+  background: var(--cream);
+  padding: 30px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.pet-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pet-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  background: var(--white);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pet-buttons button.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.pet-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.submit-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 50px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: var(--secondary);
+}
+
+.confirmation-message {
+  display: none;
+  background: var(--white);
+  border-left: 4px solid var(--primary);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.social-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--cream);
+  border-radius: 16px;
+  border: 2px solid var(--primary);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--white);
+  padding: 15px 25px;
+  border-radius: 16px;
+  min-width: 220px;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.social-card:hover {
+  transform: translateY(-5px);
+  background: var(--secondary);
+}
+
+.map-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.map-content {
+  width: 85%;
+  max-width: 850px;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+  .contact-section {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .booking-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-center {
+    gap: 10px;
+  }
+}
 /* Import Google Fonts for Soft Rounded Typography */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap');
 
